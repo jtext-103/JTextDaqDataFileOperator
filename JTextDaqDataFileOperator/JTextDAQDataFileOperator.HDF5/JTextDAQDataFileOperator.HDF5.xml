@@ -19,12 +19,13 @@
             </summary>
             <param name="sampleCount">每通道采样总数</param>
         </member>
-        <member name="M:JTextDAQDataFileOperator.HDF5.DataReader.#ctor(System.String,System.String)">
+        <member name="M:JTextDAQDataFileOperator.HDF5.DataReader.#ctor(System.String,System.String,System.Boolean)">
             <summary>
             依照 BinData 签名的构造函数
             </summary>
             <param name="dataFileDirectory">HDF5 文件所在文件夹</param>
             <param name="name">HDF5 文件名不带后缀</param>
+            <param name="isReadonly"></param>
         </member>
         <member name="M:JTextDAQDataFileOperator.HDF5.DataReader.LoadDataFromFile(System.Int32,System.UInt64,System.UInt64)">
             <summary>
