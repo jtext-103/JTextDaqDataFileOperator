@@ -29,14 +29,13 @@ namespace JTextDAQDataFileOperator.HDF5
         /// </summary>
         /// <param name="dataFileDirectory">HDF5 文件所在文件夹</param>
         /// <param name="name">HDF5 文件名不带后缀</param>
-        /// <param name="isReadonly"></param>
-        public DataReader(string dataFileDirectory, string name, bool isReadonly = false)
+        public DataReader(string dataFileDirectory, string name)
         {
             this.name = name;
             this.dataFilePath = dataFileDirectory + name + ".hdf5";
 
             myH5File = new HDF5File();
-            myH5File.Open(this.dataFilePath, isReadonly);
+            myH5File.Open(this.dataFilePath);
             myH5Group = myH5File.GetGroup("Attribute");
 
             // double 转 object 后，object 不能直接转 int，需要先转 double 再转 int
