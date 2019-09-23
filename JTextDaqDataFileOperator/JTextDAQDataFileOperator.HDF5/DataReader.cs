@@ -60,7 +60,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// <param name="start">大于等于 0 </param>
         /// <param name="length">等于 0 则代表从 start 开始，读余下的所有点；大于零则代表读 length 个数的点，最多不超过 sampleCount</param>
         /// <returns></returns>
-        public double[] LoadDataFromFile(int channelNo, ulong start, ulong length)
+        public double[] LoadDataFromFile(int channelNo, ulong start = 0, ulong length = 0)
         {
             if(start == 0 && length == 0)
             {
@@ -76,7 +76,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// <param name="start"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public double[] LoadDataFromFile_TimeAxis(int channelNo, ulong start, ulong length)
+        public double[] LoadDataFromFile_TimeAxis(int channelNo, ulong start = 0, ulong length = 0)
         {
             if (start == 0 && length == 0)
             {
@@ -94,7 +94,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// <param name="count">读多少次</param>
         /// <param name="block">每次读多少个连续点</param>
         /// <returns></returns>
-        public double[] LoadDataFromFileComplex(int channelNo, ulong start, ulong stride, ulong count, ulong block)
+        public double[] LoadDataFromFileComplex(int channelNo, ulong start, ulong stride, ulong count, ulong block = 1)
         {
             if (!IsParamsRight(channelNo, start, stride, count, block)) return null;
 
@@ -118,7 +118,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// 对应方法的时间轴
         /// </summary>
         /// <returns></returns>
-        public double[] LoadDataFromFileComplex_TimeAxis(int channelNo, ulong start, ulong stride, ulong count, ulong block)
+        public double[] LoadDataFromFileComplex_TimeAxis(int channelNo, ulong start, ulong stride, ulong count, ulong block = 1)
         {
             if (!IsParamsRight(channelNo, start, stride, count, block)) return null;
 
@@ -151,7 +151,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// <param name="count"></param>
         /// <param name="block"></param>
         /// <returns></returns>
-        public double[] LoadDataFromFileComplexRam(int channelNo, ulong start, ulong stride, ulong count, ulong block)
+        public double[] LoadDataFromFileComplexRam(int channelNo, ulong start, ulong stride, ulong count, ulong block = 1)
         {
             if (!IsParamsRight(channelNo, start, stride, count, block)) return null;
 
@@ -172,7 +172,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// 对应方法的时间轴
         /// </summary>
         /// <returns></returns>
-        public double[] LoadDataFromFileComplexRam_TimeAxis(int channelNo, ulong start, ulong stride, ulong count, ulong block)
+        public double[] LoadDataFromFileComplexRam_TimeAxis(int channelNo, ulong start, ulong stride, ulong count, ulong block = 1)
         {
             //这两个方法不读数据，没区别
             return LoadDataFromFileComplex_TimeAxis(channelNo, start, stride, count, block);
@@ -205,7 +205,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// <param name="endTime">想要的结束时间</param>
         /// <param name="stride">两点之间差多少点（最小是1）</param>
         /// <returns></returns>
-        public double[] LoadDataFromFileByTime(int channelNo, double startTime, double endTime, ulong stride)
+        public double[] LoadDataFromFileByTime(int channelNo, double startTime, double endTime, ulong stride = 1)
         {
             if (!IsParamsRight(channelNo, startTime, endTime, stride)) return null;
 
@@ -222,7 +222,7 @@ namespace JTextDAQDataFileOperator.HDF5
         /// 对应方法的时间轴
         /// </summary>
         /// <returns></returns>
-        public double[] LoadDataFromFileByTime_TimeAxis(int channelNo, double startTime, double endTime, ulong stride)
+        public double[] LoadDataFromFileByTime_TimeAxis(int channelNo, double startTime, double endTime, ulong stride = 1)
         {
             if (!IsParamsRight(channelNo, startTime, endTime, stride)) return null;
 
