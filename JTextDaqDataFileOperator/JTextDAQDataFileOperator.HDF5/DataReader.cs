@@ -278,6 +278,10 @@ namespace JTextDAQDataFileOperator.HDF5
             {
                 throw new Exception("endTime < startTime!");
             }
+            if(endTime > this.startTime + (double)sampleCount / sampleRate)
+            {
+                throw new Exception("endTime is to late!");
+            }
             if (strideOrCount == 0)
             {
                 throw new Exception("strideOrCount should >= 1.");
